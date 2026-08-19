@@ -1,0 +1,33 @@
+:root {
+    /* Brand */
+    --color-primary: #0b2c52;
+    --color-primary-dark: #06182d;
+
+    /* Accent */
+    --color-accent: #2e7dff;
+    --color-accent-bright: #29c7ff;
+    --color-accent-light: #65d8ff;
+
+    /* Text */
+    --color-text: #16263a;
+    --color-muted: #66788c;
+
+    /* Surface */
+    --color-bg: #f5f8fc;
+    --color-white: #ffffff;
+
+    /* Borders */
+    --color-border: rgba(12, 44, 82, 0.1);
+
+    /* Layout */
+    --container: 1280px;
+
+    /* Shadows */
+    --shadow-soft:
+        0 22px 60px
+        rgba(20, 52, 84, 0.12);
+
+    --shadow-dark:
+        0 28px 80px
+        rgba(0, 0, 0, 0.22);
+}

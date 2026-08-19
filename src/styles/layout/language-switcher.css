@@ -1,0 +1,283 @@
+/* =========================================================
+   LANGUAGE SWITCHER
+   ========================================================= */
+
+.language-switcher {
+    position: relative;
+}
+
+/* =========================================================
+   TRIGGER
+   ========================================================= */
+
+.language-trigger {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding:
+        0
+        14px;
+
+    border:
+        1px solid
+        rgba(101, 216, 255, 0.2);
+
+    border-radius: 13px;
+
+    color: #ffffff;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.language-trigger:hover,
+.language-trigger.is-open {
+    border-color:
+        rgba(101, 216, 255, 0.34);
+
+    background:
+        rgba(255, 255, 255, 0.09);
+}
+
+.language-trigger > i:first-child {
+    color: #65d8ff;
+
+    font-size: 0.9rem;
+}
+
+.language-trigger strong {
+    font-size: 0.7rem;
+    font-weight: 850;
+}
+
+.language-chevron {
+    color:
+        rgba(255, 255, 255, 0.6);
+
+    font-size: 0.58rem;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.language-trigger.is-open
+.language-chevron {
+    transform:
+        rotate(180deg);
+}
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.language-dropdown {
+    position: absolute;
+
+    top:
+        calc(100% + 14px);
+
+    right: 0;
+
+    z-index: 1200;
+
+    width: 230px;
+
+    padding: 10px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 17px;
+
+    background: #0d1d2e;
+
+    box-shadow:
+        0 24px 60px
+        rgba(1, 11, 21, 0.32);
+}
+
+.language-dropdown-title {
+    display: block;
+
+    padding:
+        6px
+        9px
+        8px;
+
+    color:
+        rgba(255, 255, 255, 0.4);
+
+    font-size: 0.58rem;
+    font-weight: 850;
+
+    letter-spacing: 0.11em;
+
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   OPTIONS
+   ========================================================= */
+
+.language-option {
+    width: 100%;
+
+    min-height: 58px;
+
+    display: grid;
+
+    grid-template-columns:
+        38px
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        8px
+        10px;
+
+    border: 0;
+    border-radius: 12px;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+
+    background: transparent;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+.language-option:hover {
+    background:
+        rgba(255, 255, 255, 0.05);
+}
+
+.language-option.active {
+    background:
+        rgba(30, 142, 218, 0.15);
+}
+
+/* Code */
+.language-code {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid
+        rgba(101, 216, 255, 0.13);
+
+    border-radius: 10px;
+
+    color: #65d8ff;
+
+    background:
+        rgba(101, 216, 255, 0.06);
+
+    font-size: 0.64rem;
+    font-weight: 900;
+}
+
+/* Text */
+.language-option-copy {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.language-option-copy strong {
+    color: #ffffff;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.language-option-copy small {
+    margin-top: 3px;
+
+    color:
+        rgba(255, 255, 255, 0.38);
+
+    font-size: 0.6rem;
+}
+
+.language-option > i {
+    color: #49d2ff;
+
+    font-size: 0.8rem;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .language-trigger {
+        min-height: 42px;
+
+        padding:
+            0
+            11px;
+
+        gap: 7px;
+    }
+
+    .language-trigger strong {
+        font-size: 0.66rem;
+    }
+
+    .language-dropdown {
+        width: 220px;
+
+        right: -48px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .language-trigger {
+        padding-inline: 9px;
+    }
+
+    .language-trigger > i:first-child {
+        display: none;
+    }
+
+    .language-dropdown {
+        right: -48px;
+
+        width:
+            min(
+                220px,
+                calc(100vw - 28px)
+            );
+    }
+}

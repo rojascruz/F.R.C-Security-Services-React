@@ -1,0 +1,622 @@
+/* =========================================================
+   HOME CTA
+   ========================================================= */
+
+.home-cta-section {
+    position: relative;
+
+    padding:
+        clamp(88px, 8vw, 120px)
+        0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5f8fc 0%,
+            #f8fbff 100%
+        );
+}
+
+/* =========================================================
+   MAIN CTA
+   ========================================================= */
+
+.home-cta-container {
+    position: relative;
+    overflow: hidden;
+
+    width:
+        min(
+            calc(100% - 48px),
+            var(--container)
+        );
+
+    min-height: 510px;
+
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(12, 44, 82, 0.08);
+
+    border-radius: 28px;
+
+    background: #071b31;
+
+    box-shadow:
+        0 26px 70px
+        rgba(18, 50, 82, 0.13);
+}
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.home-cta-background,
+.home-cta-overlay {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.home-cta-background {
+    object-fit: cover;
+    object-position: center;
+
+    transform: scale(1.01);
+}
+
+.home-cta-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 18, 34, 0.96) 0%,
+            rgba(5, 24, 44, 0.91) 38%,
+            rgba(5, 24, 44, 0.68) 63%,
+            rgba(5, 24, 44, 0.18) 100%
+        );
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.home-cta-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 700px;
+
+    padding:
+        58px
+        60px;
+
+    color: #ffffff;
+}
+
+.home-cta-content h2 {
+    max-width: 680px;
+
+    margin:
+        14px
+        0
+        0;
+
+    font-size:
+        clamp(2.65rem, 4.8vw, 4.8rem);
+
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+
+    text-wrap: balance;
+}
+
+.home-cta-content h2 span {
+    color: #65d8ff;
+}
+
+.home-cta-content > p {
+    max-width: 590px;
+
+    margin:
+        20px
+        0
+        0;
+
+    color:
+        rgba(229, 240, 250, 0.7);
+
+    font-size:
+        clamp(0.92rem, 1vw, 1rem);
+
+    line-height: 1.75;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.home-cta-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.home-cta-primary-button,
+.home-cta-secondary-button {
+    min-height: 50px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding:
+        0
+        20px;
+
+    border-radius: 12px;
+
+    font-size: 0.77rem;
+    font-weight: 800;
+}
+
+.home-cta-primary-button {
+    color: #07192f;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.14);
+}
+
+.home-cta-primary-button:hover {
+    background: #f5fbff;
+}
+
+.home-cta-primary-button i {
+    color: var(--color-accent);
+
+    font-size: 0.92rem;
+
+    transition:
+        transform
+        0.25s ease;
+}
+
+.home-cta-primary-button:hover i {
+    transform:
+        translateX(3px);
+}
+
+.home-cta-secondary-button {
+    color: #ffffff;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+.home-cta-secondary-button:hover {
+    border-color:
+        rgba(255, 255, 255, 0.28);
+
+    background:
+        rgba(255, 255, 255, 0.11);
+}
+
+.home-cta-secondary-button i {
+    color: #65d8ff;
+}
+
+/* =========================================================
+   TRUST INFORMATION
+   ========================================================= */
+
+.home-cta-trust {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 10px 22px;
+
+    margin-top: 30px;
+    padding-top: 22px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+.home-cta-trust > div {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color:
+        rgba(229, 240, 250, 0.72);
+
+    font-size: 0.69rem;
+    font-weight: 700;
+}
+
+.home-cta-trust i {
+    color: #65d8ff;
+
+    font-size: 0.9rem;
+}
+
+.home-cta-trust span {
+    color: #ffffff;
+
+    font-weight: 850;
+}
+
+.home-cta-trust small {
+    color:
+        rgba(229, 240, 250, 0.5);
+
+    font-size: inherit;
+}
+
+/* =========================================================
+   CAREERS
+   ========================================================= */
+
+.careers-strip {
+    width:
+        min(
+            calc(100% - 48px),
+            var(--container)
+        );
+
+    margin:
+        18px
+        auto
+        0;
+
+    padding:
+        26px
+        30px;
+
+    display: grid;
+    grid-template-columns:
+        auto
+        minmax(0, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border:
+        1px solid
+        rgba(12, 44, 82, 0.08);
+
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 14px 38px
+        rgba(20, 52, 84, 0.055);
+}
+
+.careers-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        rgba(46, 125, 255, 0.1);
+
+    border-radius: 14px;
+
+    color:
+        var(--color-accent);
+
+    background:
+        rgba(46, 125, 255, 0.07);
+}
+
+.careers-icon i {
+    font-size: 1.15rem;
+}
+
+.careers-content {
+    min-width: 0;
+}
+
+.careers-eyebrow {
+    color:
+        var(--color-accent);
+
+    font-size: 0.64rem;
+    font-weight: 850;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.careers-content h3 {
+    margin:
+        7px
+        0
+        0;
+
+    color: #152a42;
+
+    font-size: 1rem;
+    font-weight: 800;
+
+    line-height: 1.3;
+}
+
+.careers-content p {
+    max-width: 720px;
+
+    margin:
+        7px
+        0
+        0;
+
+    color:
+        var(--color-muted);
+
+    font-size: 0.78rem;
+    line-height: 1.65;
+}
+
+.careers-button {
+    gap: 9px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #247cf3 0%,
+            #21bff0 100%
+        );
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 12px 28px
+        rgba(46, 125, 255, 0.2);
+}
+
+.careers-button i {
+    font-size: 0.85rem;
+
+    transition:
+        transform
+        0.25s ease;
+}
+
+.careers-button:hover i {
+    transform:
+        translateX(3px);
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .home-cta-container {
+        min-height: 480px;
+    }
+
+    .home-cta-overlay {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(4, 18, 34, 0.96) 0%,
+                rgba(5, 24, 44, 0.88) 60%,
+                rgba(5, 24, 44, 0.46) 100%
+            );
+    }
+
+    .home-cta-content {
+        max-width: 650px;
+
+        padding:
+            48px
+            44px;
+    }
+
+    .careers-strip {
+        grid-template-columns:
+            auto
+            1fr;
+    }
+
+    .careers-button {
+        grid-column:
+            1
+            /
+            -1;
+
+        width: fit-content;
+
+        margin-left: 70px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+    .home-cta-section {
+        padding:
+            72px
+            0;
+    }
+
+    .home-cta-container {
+        width:
+            calc(100% - 30px);
+
+        min-height: 520px;
+
+        align-items: flex-end;
+
+        border-radius: 22px;
+    }
+
+    .home-cta-background {
+        object-position: 62% center;
+    }
+
+    .home-cta-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(5, 20, 38, 0.34) 0%,
+                rgba(5, 20, 38, 0.78) 42%,
+                rgba(5, 20, 38, 0.97) 100%
+            );
+    }
+
+    .home-cta-content {
+        width: 100%;
+        max-width: none;
+
+        padding:
+            34px
+            24px;
+    }
+
+    .home-cta-content h2 {
+        font-size:
+            clamp(
+                2.15rem,
+                10vw,
+                3rem
+            );
+
+        line-height: 1.03;
+    }
+
+    .home-cta-content > p {
+        font-size: 0.88rem;
+        line-height: 1.68;
+    }
+
+    .home-cta-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .home-cta-primary-button,
+    .home-cta-secondary-button {
+        width: 100%;
+    }
+
+    .home-cta-trust {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .careers-strip {
+        width:
+            calc(100% - 30px);
+
+        grid-template-columns:
+            auto
+            minmax(0, 1fr);
+
+        align-items: start;
+
+        padding:
+            22px;
+
+        gap: 15px;
+
+        border-radius: 18px;
+    }
+
+    .careers-icon {
+        width: 44px;
+        height: 44px;
+
+        border-radius: 12px;
+    }
+
+    .careers-icon i {
+        font-size: 1rem;
+    }
+
+    .careers-content h3 {
+        font-size: 0.95rem;
+    }
+
+    .careers-content p {
+        font-size: 0.76rem;
+    }
+
+    .careers-button {
+        grid-column:
+            1
+            /
+            -1;
+
+        width: 100%;
+
+        margin-left: 0;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .home-cta-section {
+        padding:
+            64px
+            0;
+    }
+
+    .home-cta-content {
+        padding:
+            30px
+            20px;
+    }
+
+    .home-cta-content h2 {
+        font-size: 2.05rem;
+    }
+
+    .careers-strip {
+        padding: 19px;
+    }
+}

@@ -1,0 +1,411 @@
+/* =========================================================
+   FLEET
+   ========================================================= */
+
+.fleet-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(88px, 8vw, 120px) 0;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8fbff 100%
+    );
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.fleet-header {
+    margin-bottom: 46px;
+}
+
+.fleet-header > p {
+    max-width: 520px;
+    margin: 0;
+    color: var(--color-muted);
+    font-size: clamp(0.9rem, 1vw, 0.98rem);
+    line-height: 1.75;
+}
+
+.fleet-header h2 {
+    font-size: clamp(2.35rem, 4.2vw, 4.2rem);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr 0.85fr;
+    grid-template-rows: 270px 270px;
+    gap: 16px;
+}
+
+/* =========================================================
+   PHOTO
+   ========================================================= */
+
+.fleet-photo {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba(12, 44, 82, 0.08);
+    border-radius: 22px;
+    background: #dfe8f1;
+    box-shadow: 0 16px 42px rgba(20, 52, 84, 0.07);
+}
+
+.fleet-photo-1 {
+    grid-row: 1 / span 2;
+}
+
+.fleet-photo-4 {
+    grid-column: 2 / span 2;
+}
+
+/* =========================================================
+   IMAGE BUTTON
+   ========================================================= */
+
+.fleet-photo-button {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.fleet-photo-button:focus-visible {
+    outline: 3px solid rgba(46, 125, 255, 0.65);
+    outline-offset: -3px;
+}
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.fleet-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.fleet-photo:hover img {
+    transform: scale(1.035);
+}
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.fleet-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(5, 20, 37, 0.01) 45%,
+        rgba(5, 20, 37, 0.62) 100%
+    );
+    pointer-events: none;
+    transition: background 0.35s ease;
+}
+
+.fleet-photo:hover .fleet-photo-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(5, 20, 37, 0.02) 38%,
+        rgba(5, 20, 37, 0.7) 100%
+    );
+}
+
+/* =========================================================
+   CAPTION
+   ========================================================= */
+
+.fleet-photo figcaption {
+    position: absolute;
+    z-index: 2;
+    left: 18px;
+    bottom: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    min-height: 36px;
+    padding: 8px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+
+    color: #ffffff;
+    background: rgba(6, 24, 45, 0.64);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+
+    pointer-events: none;
+}
+
+.fleet-photo figcaption i {
+    color: #65d8ff;
+    font-size: 0.82rem;
+    line-height: 1;
+}
+
+.fleet-photo figcaption span {
+    line-height: 1;
+}
+
+/* =========================================================
+   ZOOM ICON
+   ========================================================= */
+
+.fleet-zoom-icon {
+    position: absolute;
+    z-index: 3;
+    top: 16px;
+    right: 16px;
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+
+    color: #ffffff;
+    background: rgba(6, 24, 45, 0.58);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateY(-4px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+
+    pointer-events: none;
+}
+
+.fleet-zoom-icon i {
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+.fleet-photo:hover .fleet-zoom-icon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+.fleet-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(3, 12, 22, 0.92);
+    backdrop-filter: blur(8px);
+
+    cursor: zoom-out;
+}
+
+.fleet-lightbox img {
+    display: block;
+    max-width: min(1100px, 94vw);
+    max-height: 88vh;
+
+    object-fit: contain;
+
+    border-radius: 16px;
+
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+
+    cursor: default;
+}
+
+.fleet-lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.fleet-lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: rotate(5deg);
+}
+
+.fleet-lightbox-close:focus-visible {
+    outline: 3px solid rgba(101, 216, 255, 0.55);
+    outline-offset: 3px;
+}
+
+.fleet-lightbox-close i {
+    font-size: 1.15rem;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+    .fleet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, 290px);
+        gap: 14px;
+    }
+
+    .fleet-photo-1,
+    .fleet-photo-4 {
+        grid-row: auto;
+        grid-column: auto;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+    .fleet-section {
+        padding: 72px 0;
+    }
+
+    .fleet-header {
+        margin-bottom: 34px;
+    }
+
+    .fleet-header h2 {
+        font-size: clamp(2.1rem, 10vw, 2.9rem);
+        line-height: 1.04;
+    }
+
+    .fleet-header > p {
+        font-size: 0.89rem;
+        line-height: 1.68;
+    }
+
+    .fleet-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 14px;
+    }
+
+    .fleet-photo {
+        min-height: 290px;
+        border-radius: 20px;
+    }
+
+    .fleet-photo figcaption {
+        left: 14px;
+        bottom: 14px;
+
+        min-height: 34px;
+        padding: 7px 11px;
+
+        font-size: 0.65rem;
+    }
+
+    .fleet-photo figcaption i {
+        font-size: 0.78rem;
+    }
+
+    .fleet-zoom-icon {
+        opacity: 1;
+        transform: none;
+
+        top: 12px;
+        right: 12px;
+
+        width: 34px;
+        height: 34px;
+    }
+
+    .fleet-lightbox {
+        padding: 16px;
+    }
+
+    .fleet-lightbox img {
+        max-width: 100%;
+        max-height: 82vh;
+        border-radius: 12px;
+    }
+
+    .fleet-lightbox-close {
+        top: 16px;
+        right: 16px;
+
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+    .fleet-section {
+        padding: 64px 0;
+    }
+
+    .fleet-photo {
+        min-height: 250px;
+    }
+
+    .fleet-photo figcaption {
+        left: 12px;
+        bottom: 12px;
+    }
+
+    .fleet-zoom-icon {
+        top: 10px;
+        right: 10px;
+    }
+}

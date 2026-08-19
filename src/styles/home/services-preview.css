@@ -1,0 +1,425 @@
+/* =========================================================
+   SERVICES PREVIEW
+   ========================================================= */
+
+.services-preview-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(88px, 8vw, 120px) 0;
+
+    background: #ffffff;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.services-preview-header {
+    margin-bottom: 46px;
+}
+
+.services-preview-header h2 {
+    font-size: clamp(2.35rem, 4.2vw, 4.2rem);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+}
+
+.services-preview-header-copy {
+    max-width: 520px;
+}
+
+.services-preview-header-copy p {
+    margin: 0;
+
+    color: var(--color-muted);
+
+    font-size: clamp(0.9rem, 1vw, 0.98rem);
+    line-height: 1.75;
+}
+
+/* =========================================================
+   VIEW ALL LINK
+   ========================================================= */
+
+.services-preview-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: 18px;
+
+    color: var(--color-accent);
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+.services-preview-view-all i {
+    font-size: 0.86rem;
+
+    transition: transform 0.25s ease;
+}
+
+.services-preview-view-all:hover i {
+    transform: translateX(3px);
+}
+
+/* =========================================================
+   GRID
+   ========================================================= */
+
+.services-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.service-preview-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 460px;
+
+    display: block;
+
+    border: 1px solid rgba(12, 44, 82, 0.08);
+    border-radius: 22px;
+
+    color: #ffffff;
+    background: #0b2542;
+
+    box-shadow:
+        0 18px 48px
+        rgba(20, 52, 84, 0.1);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.service-preview-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(46, 125, 255, 0.18);
+
+    box-shadow:
+        0 26px 60px
+        rgba(20, 52, 84, 0.16);
+}
+
+.service-preview-card:focus-visible {
+    outline: 3px solid rgba(46, 125, 255, 0.5);
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   IMAGE
+   ========================================================= */
+
+.service-preview-card > img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.service-preview-card:hover > img {
+    transform: scale(1.045);
+}
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.service-preview-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4, 18, 34, 0.05) 20%,
+            rgba(4, 18, 34, 0.35) 52%,
+            rgba(4, 18, 34, 0.94) 100%
+        );
+
+    transition: background 0.35s ease;
+
+    pointer-events: none;
+}
+
+.service-preview-card:hover
+.service-preview-overlay {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(4, 18, 34, 0.08) 15%,
+            rgba(4, 18, 34, 0.45) 48%,
+            rgba(4, 18, 34, 0.97) 100%
+        );
+}
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.service-preview-icon {
+    position: absolute;
+    z-index: 3;
+
+    top: 20px;
+    left: 20px;
+
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 13px;
+
+    color: #65d8ff;
+
+    background:
+        rgba(6, 24, 45, 0.62);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 28px
+        rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease;
+}
+
+.service-preview-icon i {
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.service-preview-card:hover
+.service-preview-icon {
+    transform: translateY(-2px);
+
+    background:
+        rgba(6, 24, 45, 0.78);
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.service-preview-content {
+    position: absolute;
+    z-index: 3;
+
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+}
+
+.service-preview-content h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 1.25rem;
+    font-weight: 800;
+
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.service-preview-content p {
+    max-width: 410px;
+
+    margin: 11px 0 0;
+
+    color:
+        rgba(232, 242, 251, 0.7);
+
+    font-size: 0.79rem;
+    line-height: 1.65;
+}
+
+/* =========================================================
+   CARD LINK
+   ========================================================= */
+
+.service-preview-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 18px;
+
+    color: #65d8ff;
+
+    font-size: 0.7rem;
+    font-weight: 800;
+
+    opacity: 0.9;
+}
+
+.service-preview-link i {
+    font-size: 0.82rem;
+
+    transition: transform 0.25s ease;
+}
+
+.service-preview-card:hover
+.service-preview-link i {
+    transform:
+        translate(
+            2px,
+            -2px
+        );
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .services-preview-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .service-preview-card {
+        min-height: 420px;
+    }
+
+    .service-preview-card:last-child {
+        grid-column: 1 / -1;
+
+        min-height: 370px;
+    }
+
+    .service-preview-card:last-child
+    .service-preview-content {
+        max-width: 600px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+
+    .services-preview-section {
+        padding: 72px 0;
+    }
+
+    .services-preview-header {
+        margin-bottom: 34px;
+    }
+
+    .services-preview-header h2 {
+        font-size:
+            clamp(
+                2.1rem,
+                10vw,
+                2.9rem
+            );
+
+        line-height: 1.04;
+    }
+
+    .services-preview-header-copy p {
+        font-size: 0.89rem;
+        line-height: 1.68;
+    }
+
+    .services-preview-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .service-preview-card,
+    .service-preview-card:last-child {
+        grid-column: auto;
+
+        min-height: 360px;
+
+        border-radius: 20px;
+    }
+
+    .service-preview-icon {
+        top: 16px;
+        left: 16px;
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .service-preview-icon i {
+        font-size: 1rem;
+    }
+
+    .service-preview-content {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .service-preview-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .service-preview-content p {
+        font-size: 0.77rem;
+        line-height: 1.65;
+    }
+
+    .service-preview-link {
+        margin-top: 15px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .services-preview-section {
+        padding: 64px 0;
+    }
+
+    .service-preview-card,
+    .service-preview-card:last-child {
+        min-height: 330px;
+    }
+
+    .service-preview-content {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+    }
+}
