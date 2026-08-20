@@ -1,0 +1,417 @@
+/* =========================================================
+   NOT FOUND PAGE
+   ========================================================= */
+
+.not-found-page {
+    position: relative;
+
+    min-height: calc(100vh - 92px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        90px
+        24px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f7faff 0%,
+            #eef5fc 50%,
+            #f8fbff 100%
+        );
+}
+
+/* =========================================================
+   BACKGROUND DECORATION
+   ========================================================= */
+
+.not-found-background {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 18% 20%,
+            rgba(46, 125, 255, 0.11),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 82% 78%,
+            rgba(41, 199, 255, 0.1),
+            transparent 34%
+        );
+}
+
+.not-found-background::before,
+.not-found-background::after {
+    content: '';
+
+    position: absolute;
+
+    border-radius: 50%;
+}
+
+.not-found-background::before {
+    width: 340px;
+    height: 340px;
+
+    top: -140px;
+    right: -100px;
+
+    border:
+        1px solid
+        rgba(46, 125, 255, 0.08);
+}
+
+.not-found-background::after {
+    width: 220px;
+    height: 220px;
+
+    bottom: -80px;
+    left: -80px;
+
+    border:
+        1px solid
+        rgba(11, 44, 82, 0.08);
+}
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.not-found-container {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            100%,
+            850px
+        );
+
+    margin-inline: auto;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.not-found-content {
+    position: relative;
+
+    padding:
+        72px
+        60px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(11, 44, 82, 0.08);
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    box-shadow:
+        0 28px 80px
+        rgba(17, 52, 87, 0.12);
+
+    backdrop-filter:
+        blur(14px);
+}
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.not-found-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--color-accent);
+
+    font-size: 0.72rem;
+    font-weight: 850;
+
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.not-found-eyebrow i {
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   404 CODE
+   ========================================================= */
+
+.not-found-code {
+    margin-top: 12px;
+
+    color:
+        rgba(46, 125, 255, 0.1);
+
+    font-size:
+        clamp(
+            7rem,
+            18vw,
+            12rem
+        );
+
+    font-weight: 950;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.07em;
+
+    user-select: none;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.not-found-content h1 {
+    max-width: 680px;
+
+    margin:
+        -24px
+        auto
+        0;
+
+    color: var(--color-primary-dark);
+
+    font-size:
+        clamp(
+            2rem,
+            4.5vw,
+            3.6rem
+        );
+
+    font-weight: 850;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.045em;
+
+    text-wrap: balance;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.not-found-content > p {
+    max-width: 610px;
+
+    margin:
+        22px
+        auto
+        0;
+
+    color: var(--color-muted);
+
+    font-size: 0.96rem;
+    line-height: 1.75;
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.not-found-actions {
+    margin-top: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.not-found-actions .button {
+    gap: 9px;
+
+    min-width: 165px;
+}
+
+.not-found-actions .button i {
+    font-size: 0.88rem;
+}
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.not-found-security {
+    margin-top: 42px;
+
+    padding-top: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border-top:
+        1px solid
+        rgba(11, 44, 82, 0.08);
+
+    color:
+        rgba(22, 38, 58, 0.48);
+
+    font-size: 0.72rem;
+    font-weight: 750;
+}
+
+.not-found-security i {
+    color: var(--color-accent);
+
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .not-found-page {
+        min-height:
+            calc(
+                100vh - 82px
+            );
+
+        padding:
+            70px
+            20px;
+    }
+
+    .not-found-content {
+        padding:
+            60px
+            38px;
+    }
+
+    .not-found-code {
+        font-size:
+            clamp(
+                6rem,
+                24vw,
+                9rem
+            );
+    }
+
+    .not-found-content h1 {
+        margin-top: -18px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .not-found-page {
+        min-height:
+            calc(
+                100vh - 78px
+            );
+
+        padding:
+            54px
+            15px;
+    }
+
+    .not-found-content {
+        padding:
+            48px
+            22px;
+
+        border-radius: 22px;
+    }
+
+    .not-found-code {
+        margin-top: 18px;
+
+        font-size:
+            clamp(
+                5.5rem,
+                30vw,
+                7.5rem
+            );
+    }
+
+    .not-found-content h1 {
+        margin-top: -12px;
+
+        font-size:
+            clamp(
+                1.8rem,
+                8vw,
+                2.5rem
+            );
+    }
+
+    .not-found-content > p {
+        margin-top: 18px;
+
+        font-size: 0.88rem;
+    }
+
+    .not-found-actions {
+        margin-top: 28px;
+
+        flex-direction: column;
+    }
+
+    .not-found-actions .button {
+        width: 100%;
+    }
+
+    .not-found-security {
+        margin-top: 34px;
+
+        padding-top: 20px;
+
+        font-size: 0.66rem;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .not-found-content {
+        padding:
+            42px
+            18px;
+    }
+
+    .not-found-code {
+        font-size: 5.5rem;
+    }
+
+    .not-found-content h1 {
+        font-size: 1.75rem;
+    }
+}
