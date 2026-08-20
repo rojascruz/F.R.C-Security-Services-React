@@ -374,93 +374,226 @@ export const translations = {
     contactPage: {
       hero: {
         eyebrow: 'Contáctanos',
+
         title: 'Hablemos sobre tus',
-        titleHighlight: 'necesidades de seguridad.',
+        titleHighlight:
+          'necesidades de seguridad.',
+
         description:
-          'Nuestro equipo está disponible para orientarte sobre servicios, cotizaciones y oportunidades de empleo.',
-        directContact: 'Contacto directo',
-        callUs: 'Llámanos',
-        emailUs: 'Escríbenos',
+          'Ya sea que necesites servicios de seguridad, una cotización o estés interesado en formar parte de nuestro equipo, queremos saber de ti.',
+
+        directContact:
+          'Contacto directo',
+
+        callUs:
+          'Llámanos',
+
+        emailUs:
+          'Escríbenos',
+
+        serviceContact:
+          'Servicios de Seguridad',
+
+        serviceContactDescription:
+          'Solicita información o una cotización',
+
+        employmentContact:
+          'Oportunidades de Empleo',
+
+        employmentContactDescription:
+          'Conoce cómo formar parte de nuestro equipo',
       },
 
       info: {
-        eyebrow: 'Estamos para ayudarte',
-        title: 'Comienza con una',
-        titleHighlight: 'conversación.',
+        eyebrow:
+          'Estamos para ayudarte',
+
+        title:
+          'Comienza con una',
+
+        titleHighlight:
+          'conversación.',
+
         description:
-          'Cuéntanos qué necesitas proteger o si deseas conocer oportunidades para trabajar con nuestro equipo.',
+          'Cuéntanos qué necesitas proteger o selecciona la opción de empleo si deseas conocer oportunidades para formar parte de F.R.C Security Services INC.',
       },
 
       directActions: {
         whatsapp: {
-          title: 'Escribir por WhatsApp',
+          title:
+            'Escribir por WhatsApp',
+
           description:
             'Comunícate directamente con nuestro equipo.',
         },
+
         email: {
-          title: 'Enviar un Email',
+          title:
+            'Enviar un Email',
+
           description:
             'Envíanos información sobre tu solicitud.',
         },
       },
 
       form: {
-        eyebrow: 'Solicitud de Información',
-        title: 'Cuéntanos cómo podemos ayudarte',
+        eyebrow:
+          'Solicitud de Información',
+
+        title:
+          'Cuéntanos cómo podemos ayudarte',
+
         description:
-          'Completa la información y nuestro equipo podrá comunicarse contigo.',
+          'Completa la información y nuestro equipo podrá comunicarse contigo para conocer mejor tus necesidades.',
+
+        employmentEyebrow:
+          'Oportunidades de Empleo',
+
+        employmentTitle:
+          '¿Quieres formar parte de nuestro equipo?',
+
+        employmentDescription:
+          'Cuéntanos sobre tu experiencia, habilidades, disponibilidad y el tipo de trabajo de seguridad que te interesa.',
+
+        inquiry: {
+          service:
+            'Servicio / Cotización',
+
+          employment:
+            'Empleo',
+        },
+
         fields: {
-          name: 'Nombre',
-          email: 'Correo electrónico',
-          phone: 'Teléfono',
-          service: 'Asunto',
-          message: 'Mensaje',
+          name:
+            'Nombre',
+
+          email:
+            'Correo electrónico',
+
+          phone:
+            'Teléfono',
+
+          service:
+            'Asunto',
+
+          message:
+            'Mensaje',
+
+          employmentMessage:
+            'Experiencia e Interés Laboral',
         },
+
         placeholders: {
-          name: 'Tu nombre completo',
-          email: 'correo@ejemplo.com',
-          phone: '787-000-0000',
-          service: 'Selecciona una opción',
-          message: 'Cuéntanos sobre tu necesidad...',
+          name:
+            'Tu nombre completo',
+
+          email:
+            'correo@ejemplo.com',
+
+          phone:
+            '787-000-0000',
+
+          service:
+            'Selecciona una opción',
+
+          message:
+            'Cuéntanos sobre tu necesidad de seguridad, propiedad, operación o servicio que estás buscando...',
+
+          employmentMessage:
+            'Cuéntanos sobre tu experiencia, habilidades, disponibilidad y el tipo de posición que te interesa...',
         },
+
         services: {
-          quote: 'Cotización de seguridad',
-          information: 'Información de servicios',
-          employment: 'Oportunidad de empleo',
-          other: 'Otro',
+          quote:
+            'Cotización de seguridad',
+
+          information:
+            'Información de servicios',
+
+          employment:
+            'Oportunidad de empleo',
+
+          other:
+            'Otro',
         },
+
         privacy:
-          'Tu información será utilizada únicamente para responder a tu solicitud.',
-        submit: 'Enviar solicitud',
+          'Tu información será utilizada únicamente para revisar y responder a tu solicitud.',
+
+        submit:
+          'Enviar solicitud',
+
+        employmentSubmit:
+          'Enviar Solicitud de Empleo',
       },
 
       careers: {
-        eyebrow: 'Trabaja con Nosotros',
-        title: 'Construye tu futuro',
-        titleHighlight: 'con F.R.C.',
+        eyebrow:
+          'Trabaja con Nosotros',
+
+        title:
+          'Construye tu futuro',
+
+        titleHighlight:
+          'con F.R.C.',
+
         description:
           'Si eres una persona responsable, profesional y comprometida con la seguridad, queremos conocer tu interés en formar parte de nuestro equipo.',
-        button: 'Consultar oportunidades',
+
+        button:
+          'Solicitar Empleo',
       },
 
       trust: {
         response: {
-          title: 'Respuesta rápida',
-          description: 'Atendemos las solicitudes con prontitud.',
+          title:
+            'Respuesta rápida',
+
+          description:
+            'Atendemos las solicitudes con prontitud.',
         },
+
         personalized: {
-          title: 'Atención personalizada',
-          description: 'Evaluamos cada necesidad de forma individual.',
+          title:
+            'Atención personalizada',
+
+          description:
+            'Evaluamos cada necesidad de forma individual.',
         },
+
         tailored: {
-          title: 'Soluciones a medida',
-          description: 'Adaptamos el servicio al entorno y necesidad.',
+          title:
+            'Soluciones a medida',
+
+          description:
+            'Adaptamos el servicio al entorno y necesidad.',
         },
+
         reliable: {
-          title: 'Confianza y seguridad',
-          description: 'Profesionales comprometidos con cada asignación.',
+          title:
+            'Confianza y seguridad',
+
+          description:
+            'Profesionales comprometidos con cada asignación.',
         },
       },
+    },
+
+    notFoundPage: {
+      eyebrow:
+        'Página no encontrada',
+
+      title:
+        'La página que buscas no está disponible.',
+
+      description:
+        'Es posible que el enlace haya cambiado, la página haya sido movida o la dirección ingresada no sea correcta.',
+
+      primaryButton:
+        'Volver al inicio',
+
+      secondaryButton:
+        'Ver servicios',
     },
 
     footer: {
@@ -859,94 +992,230 @@ export const translations = {
 
     contactPage: {
       hero: {
-        eyebrow: 'Contact Us',
-        title: 'Let’s talk about your',
-        titleHighlight: 'security needs.',
+        eyebrow:
+          'Contact Us',
+
+        title:
+          'Let’s talk about your',
+
+        titleHighlight:
+          'security needs.',
+
         description:
-          'Our team is available to guide you regarding services, quotes, and career opportunities.',
-        directContact: 'Direct Contact',
-        callUs: 'Call Us',
-        emailUs: 'Email Us',
+          'Whether you need security services, a quote, or are interested in joining our team, we want to hear from you.',
+
+        directContact:
+          'Direct Contact',
+
+        callUs:
+          'Call Us',
+
+        emailUs:
+          'Email Us',
+
+        serviceContact:
+          'Security Services',
+
+        serviceContactDescription:
+          'Request information or a quote',
+
+        employmentContact:
+          'Employment Opportunities',
+
+        employmentContactDescription:
+          'Learn how to join our team',
       },
 
       info: {
-        eyebrow: 'We Are Here to Help',
-        title: 'Start with a',
-        titleHighlight: 'conversation.',
+        eyebrow:
+          'We Are Here to Help',
+
+        title:
+          'Start with a',
+
+        titleHighlight:
+          'conversation.',
+
         description:
-          'Tell us what you need to protect or if you would like to learn about opportunities to work with our team.',
+          'Tell us what you need to protect or select the employment option if you are interested in joining F.R.C Security Services INC.',
       },
 
       directActions: {
         whatsapp: {
-          title: 'Message Us on WhatsApp',
+          title:
+            'Message Us on WhatsApp',
+
           description:
             'Connect directly with our team.',
         },
+
         email: {
-          title: 'Send an Email',
+          title:
+            'Send an Email',
+
           description:
             'Send us information about your request.',
         },
       },
 
       form: {
-        eyebrow: 'Information Request',
-        title: 'Tell us how we can help',
+        eyebrow:
+          'Information Request',
+
+        title:
+          'Tell us how we can help',
+
         description:
-          'Complete the information and our team can contact you.',
+          'Complete the information and our team can contact you to better understand your security needs.',
+
+        employmentEyebrow:
+          'Employment Opportunities',
+
+        employmentTitle:
+          'Interested in joining our team?',
+
+        employmentDescription:
+          'Tell us about your experience, skills, availability, and the type of security work you are interested in.',
+
+        inquiry: {
+          service:
+            'Service / Quote',
+
+          employment:
+            'Employment',
+        },
+
         fields: {
-          name: 'Name',
-          email: 'Email',
-          phone: 'Phone',
-          service: 'Subject',
-          message: 'Message',
+          name:
+            'Name',
+
+          email:
+            'Email',
+
+          phone:
+            'Phone',
+
+          service:
+            'Subject',
+
+          message:
+            'Message',
+
+          employmentMessage:
+            'Experience & Employment Interest',
         },
+
         placeholders: {
-          name: 'Your full name',
-          email: 'email@example.com',
-          phone: '787-000-0000',
-          service: 'Select an option',
-          message: 'Tell us about your request...',
+          name:
+            'Your full name',
+
+          email:
+            'email@example.com',
+
+          phone:
+            '787-000-0000',
+
+          service:
+            'Select an option',
+
+          message:
+            'Tell us about your security needs, property, operation, or the service you are looking for...',
+
+          employmentMessage:
+            'Tell us about your experience, skills, availability, and the type of position you are interested in...',
         },
+
         services: {
-          quote: 'Security quote',
-          information: 'Service information',
-          employment: 'Career opportunity',
-          other: 'Other',
+          quote:
+            'Security quote',
+
+          information:
+            'Service information',
+
+          employment:
+            'Career opportunity',
+
+          other:
+            'Other',
         },
+
         privacy:
-          'Your information will only be used to respond to your request.',
-        submit: 'Send Request',
+          'Your information will only be used to review and respond to your request.',
+
+        submit:
+          'Send Request',
+
+        employmentSubmit:
+          'Send Employment Inquiry',
       },
 
       careers: {
-        eyebrow: 'Join Our Team',
-        title: 'Build your future',
-        titleHighlight: 'with F.R.C.',
+        eyebrow:
+          'Join Our Team',
+
+        title:
+          'Build your future',
+
+        titleHighlight:
+          'with F.R.C.',
+
         description:
           'If you are responsible, professional, and committed to security, we want to hear about your interest in joining our team.',
-        button: 'Ask About Opportunities',
+
+        button:
+          'Apply for Employment',
       },
 
       trust: {
         response: {
-          title: 'Fast Response',
-          description: 'We handle requests promptly.',
+          title:
+            'Fast Response',
+
+          description:
+            'We handle requests promptly.',
         },
+
         personalized: {
-          title: 'Personalized Attention',
-          description: 'We evaluate every need individually.',
+          title:
+            'Personalized Attention',
+
+          description:
+            'We evaluate every need individually.',
         },
+
         tailored: {
-          title: 'Tailored Solutions',
-          description: 'We adapt service to the environment and need.',
+          title:
+            'Tailored Solutions',
+
+          description:
+            'We adapt service to the environment and need.',
         },
+
         reliable: {
-          title: 'Trust & Security',
-          description: 'Professionals committed to every assignment.',
+          title:
+            'Trust & Security',
+
+          description:
+            'Professionals committed to every assignment.',
         },
       },
+    },
+
+    notFoundPage: {
+      eyebrow:
+        'Page Not Found',
+
+      title:
+        'The page you are looking for is not available.',
+
+      description:
+        'The link may have changed, the page may have been moved, or the address entered may not be correct.',
+
+      primaryButton:
+        'Back to Home',
+
+      secondaryButton:
+        'View Services',
     },
 
     footer: {

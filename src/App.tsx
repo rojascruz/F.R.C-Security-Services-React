@@ -4,7 +4,7 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import NotFoundPage from './pages/NotFoundPage'
 import WhatsAppButton from './components/layout/WhatsAppButton'
-
+import ScrollToTop from './components/common/ScrollToTop'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
@@ -13,6 +13,8 @@ import ContactPage from './pages/ContactPage'
 function App() {
   return (
     <>
+      <ScrollToTop />
+      
       <Header />
 
       <Routes>

@@ -1,11 +1,19 @@
-import { useState, type FormEvent } from 'react'
+import {
+  useState,
+  type FormEvent,
+} from 'react'
 
 import { siteConfig } from '../config/siteConfig'
 import { useLanguage } from '../hooks/useLanguage'
 
 import '../styles/pages/contact.css'
 
+type InquiryType =
+  | 'service'
+  | 'employment'
+
 type ContactFormData = {
+  inquiryType: InquiryType
   name: string
   email: string
   phone: string
@@ -14,6 +22,7 @@ type ContactFormData = {
 }
 
 const initialFormData: ContactFormData = {
+  inquiryType: 'service',
   name: '',
   email: '',
   phone: '',
@@ -23,15 +32,20 @@ const initialFormData: ContactFormData = {
 
 function ContactPage() {
   const { language, t } = useLanguage()
+
   const page = t.contactPage
 
   const [formData, setFormData] =
-    useState<ContactFormData>(initialFormData)
+    useState<ContactFormData>(
+      initialFormData,
+    )
 
-  const options = [
+  const isEmployment =
+    formData.inquiryType === 'employment'
+
+  const serviceOptions = [
     page.form.services.quote,
     page.form.services.information,
-    page.form.services.employment,
     page.form.services.other,
   ]
 
@@ -60,7 +74,9 @@ function ContactPage() {
 
   const whatsappUrl =
     `https://wa.me/${siteConfig.whatsapp.number}` +
-    `?text=${encodeURIComponent(t.whatsapp.message)}`
+    `?text=${encodeURIComponent(
+      t.whatsapp.message,
+    )}`
 
   const handleChange = (
     field: keyof ContactFormData,
@@ -72,15 +88,40 @@ function ContactPage() {
     }))
   }
 
+  const handleInquiryTypeChange = (
+    inquiryType: InquiryType,
+  ) => {
+    setFormData((current) => ({
+      ...current,
+      inquiryType,
+      service: '',
+      message: '',
+    }))
+  }
+
+  const scrollToForm = (
+    inquiryType: InquiryType,
+  ) => {
+    handleInquiryTypeChange(
+      inquiryType,
+    )
+
+    window.setTimeout(() => {
+      document
+        .getElementById(
+          'contact-form-card',
+        )
+        ?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+    }, 50)
+  }
+
   const handleSubmit = (
     event: FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault()
-
-    const fallbackService =
-      language === 'es'
-        ? 'Solicitud de información'
-        : 'Information Request'
 
     const notProvided =
       language === 'es'
@@ -92,70 +133,202 @@ function ContactPage() {
         ? 'No especificado'
         : 'Not specified'
 
+    const fallbackService =
+      language === 'es'
+        ? 'Solicitud de información'
+        : 'Information Request'
+
     const labels =
       language === 'es'
         ? {
             name: 'Nombre',
             email: 'Correo electrónico',
             phone: 'Teléfono',
-            subject: 'Servicio solicitado',
+            service: 'Servicio solicitado',
             message: 'Mensaje',
+            employment:
+              'SOLICITUD DE EMPLEO',
+            experience:
+              'Experiencia e interés laboral',
           }
         : {
             name: 'Name',
             email: 'Email',
             phone: 'Phone',
-            subject: 'Requested service',
+            service: 'Requested service',
             message: 'Message',
+            employment:
+              'EMPLOYMENT INQUIRY',
+            experience:
+              'Experience and employment interest',
           }
 
-    const subject =
-      `${siteConfig.businessName} - ` +
-      `${formData.service || fallbackService}`
+    const subject = isEmployment
+      ? `${siteConfig.businessName} - ${
+          language === 'es'
+            ? 'Solicitud de Empleo'
+            : 'Employment Inquiry'
+        } - ${formData.name}`
+      : `${siteConfig.businessName} - ${
+          formData.service ||
+          fallbackService
+        }`
 
-    const body = [
-      `${labels.name}: ${formData.name}`,
-      `${labels.email}: ${formData.email}`,
-      `${labels.phone}: ${formData.phone || notProvided}`,
-      `${labels.subject}: ${formData.service || notSpecified}`,
-      '',
-      `${labels.message}:`,
-      formData.message,
-    ].join('\n')
+    const body = isEmployment
+      ? [
+          labels.employment,
+          '',
+          `${labels.name}: ${formData.name}`,
+          `${labels.email}: ${formData.email}`,
+          `${labels.phone}: ${
+            formData.phone ||
+            notProvided
+          }`,
+          '',
+          `${labels.experience}:`,
+          formData.message,
+        ].join('\n')
+      : [
+          `${labels.name}: ${formData.name}`,
+          `${labels.email}: ${formData.email}`,
+          `${labels.phone}: ${
+            formData.phone ||
+            notProvided
+          }`,
+          `${labels.service}: ${
+            formData.service ||
+            notSpecified
+          }`,
+          '',
+          `${labels.message}:`,
+          formData.message,
+        ].join('\n')
 
     window.location.href =
       `mailto:${siteConfig.email}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`
+      `?subject=${encodeURIComponent(
+        subject,
+      )}` +
+      `&body=${encodeURIComponent(
+        body,
+      )}`
   }
 
   return (
     <main className="contact-page">
+
       {/* =====================================================
           HERO
           ===================================================== */}
       <section className="contact-hero">
+
+        <div
+          className="contact-hero-grid"
+          aria-hidden="true"
+        />
+
         <div className="contact-hero-container">
+
           <div className="contact-hero-copy">
+
             <span className="section-eyebrow light">
+              <i
+                className="bi bi-chat-dots"
+                aria-hidden="true"
+              />
+
               {page.hero.eyebrow}
             </span>
 
             <h1>
               {page.hero.title}{' '}
-              <span>{page.hero.titleHighlight}</span>
+
+              <span>
+                {page.hero.titleHighlight}
+              </span>
             </h1>
 
-            <p>{page.hero.description}</p>
+            <p>
+              {page.hero.description}
+            </p>
+
+            <div className="contact-hero-options">
+
+              <button
+                type="button"
+                onClick={() =>
+                  scrollToForm('service')
+                }
+              >
+                <span className="contact-hero-option-icon">
+                  <i
+                    className="bi bi-shield-check"
+                    aria-hidden="true"
+                  />
+                </span>
+
+                <span>
+                  <strong>
+                    {page.hero.serviceContact}
+                  </strong>
+
+                  <small>
+                    {
+                      page.hero
+                        .serviceContactDescription
+                    }
+                  </small>
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  scrollToForm(
+                    'employment',
+                  )
+                }
+              >
+                <span className="contact-hero-option-icon">
+                  <i
+                    className="bi bi-person-workspace"
+                    aria-hidden="true"
+                  />
+                </span>
+
+                <span>
+                  <strong>
+                    {
+                      page.hero
+                        .employmentContact
+                    }
+                  </strong>
+
+                  <small>
+                    {
+                      page.hero
+                        .employmentContactDescription
+                    }
+                  </small>
+                </span>
+              </button>
+
+            </div>
+
           </div>
 
-          {/* Contacto directo */}
+          {/* =================================================
+              CONTACTO DIRECTO
+              ================================================= */}
           <div className="contact-hero-direct">
+
             <span className="contact-hero-direct-label">
               {page.hero.directContact}
             </span>
 
-            <a href={`tel:${siteConfig.phone.href}`}>
+            <a
+              href={`tel:${siteConfig.phone.href}`}
+            >
               <div
                 className="contact-hero-direct-icon"
                 aria-hidden="true"
@@ -164,7 +337,9 @@ function ContactPage() {
               </div>
 
               <div>
-                <small>{page.hero.callUs}</small>
+                <small>
+                  {page.hero.callUs}
+                </small>
 
                 <strong>
                   {siteConfig.phone.display}
@@ -177,7 +352,9 @@ function ContactPage() {
               />
             </a>
 
-            <a href={`mailto:${siteConfig.email}`}>
+            <a
+              href={`mailto:${siteConfig.email}`}
+            >
               <div
                 className="contact-hero-direct-icon"
                 aria-hidden="true"
@@ -186,7 +363,9 @@ function ContactPage() {
               </div>
 
               <div>
-                <small>{page.hero.emailUs}</small>
+                <small>
+                  {page.hero.emailUs}
+                </small>
 
                 <strong>
                   {siteConfig.email}
@@ -198,23 +377,37 @@ function ContactPage() {
                 aria-hidden="true"
               />
             </a>
+
           </div>
+
         </div>
+
       </section>
 
       {/* =====================================================
-          CONTACT CONTENT
+          CONTENIDO
           ===================================================== */}
       <section className="contact-main-section">
+
         <div className="section-container contact-main-grid">
-          {/* Información */}
+
+          {/* =================================================
+              INFORMACIÓN
+              ================================================= */}
           <aside className="contact-info-panel">
+
             <span className="section-eyebrow">
+              <i
+                className="bi bi-chat-square-text"
+                aria-hidden="true"
+              />
+
               {page.info.eyebrow}
             </span>
 
             <h2>
               {page.info.title}{' '}
+
               <span>
                 {page.info.titleHighlight}
               </span>
@@ -224,8 +417,11 @@ function ContactPage() {
               {page.info.description}
             </p>
 
-            {/* Acciones directas */}
+            {/* ===============================================
+                ACCIONES
+                =============================================== */}
             <div className="contact-direct-actions">
+
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -241,11 +437,17 @@ function ContactPage() {
 
                 <div>
                   <strong>
-                    {page.directActions.whatsapp.title}
+                    {
+                      page.directActions
+                        .whatsapp.title
+                    }
                   </strong>
 
                   <span>
-                    {page.directActions.whatsapp.description}
+                    {
+                      page.directActions
+                        .whatsapp.description
+                    }
                   </span>
                 </div>
 
@@ -268,11 +470,17 @@ function ContactPage() {
 
                 <div>
                   <strong>
-                    {page.directActions.email.title}
+                    {
+                      page.directActions
+                        .email.title
+                    }
                   </strong>
 
                   <span>
-                    {page.directActions.email.description}
+                    {
+                      page.directActions
+                        .email.description
+                    }
                   </span>
                 </div>
 
@@ -281,13 +489,17 @@ function ContactPage() {
                   aria-hidden="true"
                 />
               </a>
+
             </div>
 
-            {/* Empleo */}
+            {/* ===============================================
+                EMPLEO
+                =============================================== */}
             <div
               id="careers"
               className="contact-careers-card"
             >
+
               <div
                 className="contact-careers-icon"
                 aria-hidden="true"
@@ -301,8 +513,12 @@ function ContactPage() {
 
               <h3>
                 {page.careers.title}{' '}
+
                 <strong>
-                  {page.careers.titleHighlight}
+                  {
+                    page.careers
+                      .titleHighlight
+                  }
                 </strong>
               </h3>
 
@@ -310,12 +526,13 @@ function ContactPage() {
                 {page.careers.description}
               </p>
 
-              <a
-                href={
-                  `mailto:${siteConfig.email}` +
-                  `?subject=${encodeURIComponent(
-                    page.form.services.employment,
-                  )}`
+              <button
+                type="button"
+                className="contact-careers-button"
+                onClick={() =>
+                  scrollToForm(
+                    'employment',
+                  )
                 }
               >
                 {page.careers.button}
@@ -324,46 +541,127 @@ function ContactPage() {
                   className="bi bi-arrow-right"
                   aria-hidden="true"
                 />
-              </a>
+              </button>
+
             </div>
+
           </aside>
 
           {/* =================================================
-              FORM
+              FORMULARIO
               ================================================= */}
-          <div className="contact-form-card">
+          <div
+            id="contact-form-card"
+            className={`contact-form-card ${
+              isEmployment
+                ? 'is-employment'
+                : ''
+            }`}
+          >
+
             <div className="contact-form-header">
+
               <div
                 className="contact-form-header-icon"
                 aria-hidden="true"
               >
-                <i className="bi bi-send" />
+                <i
+                  className={
+                    isEmployment
+                      ? 'bi bi-person-badge'
+                      : 'bi bi-send'
+                  }
+                />
               </div>
 
               <div>
+
                 <span className="section-eyebrow">
-                  {page.form.eyebrow}
+                  {isEmployment
+                    ? page.form
+                        .employmentEyebrow
+                    : page.form.eyebrow}
                 </span>
 
                 <h2>
-                  {page.form.title}
+                  {isEmployment
+                    ? page.form
+                        .employmentTitle
+                    : page.form.title}
                 </h2>
+
               </div>
+
             </div>
 
             <p className="contact-form-description">
-              {page.form.description}
+              {isEmployment
+                ? page.form
+                    .employmentDescription
+                : page.form.description}
             </p>
+
+            {/* ===============================================
+                TIPO DE SOLICITUD
+                =============================================== */}
+            <div className="contact-inquiry-selector">
+
+              <button
+                type="button"
+                className={
+                  !isEmployment
+                    ? 'is-active'
+                    : ''
+                }
+                onClick={() =>
+                  handleInquiryTypeChange(
+                    'service',
+                  )
+                }
+              >
+                <i
+                  className="bi bi-shield-check"
+                  aria-hidden="true"
+                />
+
+                {page.form.inquiry.service}
+              </button>
+
+              <button
+                type="button"
+                className={
+                  isEmployment
+                    ? 'is-active'
+                    : ''
+                }
+                onClick={() =>
+                  handleInquiryTypeChange(
+                    'employment',
+                  )
+                }
+              >
+                <i
+                  className="bi bi-person-workspace"
+                  aria-hidden="true"
+                />
+
+                {page.form.inquiry.employment}
+              </button>
+
+            </div>
 
             <form
               onSubmit={handleSubmit}
               className="contact-form"
             >
+
               <div className="contact-form-grid">
+
                 {/* Nombre */}
                 <label>
                   <span>
                     {page.form.fields.name}
+
                     <strong aria-hidden="true">
                       *
                     </strong>
@@ -385,7 +683,8 @@ function ContactPage() {
                         )
                       }
                       placeholder={
-                        page.form.placeholders.name
+                        page.form
+                          .placeholders.name
                       }
                       autoComplete="name"
                       required
@@ -397,6 +696,7 @@ function ContactPage() {
                 <label>
                   <span>
                     {page.form.fields.email}
+
                     <strong aria-hidden="true">
                       *
                     </strong>
@@ -418,7 +718,8 @@ function ContactPage() {
                         )
                       }
                       placeholder={
-                        page.form.placeholders.email
+                        page.form
+                          .placeholders.email
                       }
                       autoComplete="email"
                       required
@@ -427,7 +728,13 @@ function ContactPage() {
                 </label>
 
                 {/* Teléfono */}
-                <label>
+                <label
+                  className={
+                    isEmployment
+                      ? 'contact-field-full'
+                      : ''
+                  }
+                >
                   <span>
                     {page.form.fields.phone}
                   </span>
@@ -448,7 +755,8 @@ function ContactPage() {
                         )
                       }
                       placeholder={
-                        page.form.placeholders.phone
+                        page.form
+                          .placeholders.phone
                       }
                       autoComplete="tel"
                     />
@@ -456,46 +764,65 @@ function ContactPage() {
                 </label>
 
                 {/* Servicio */}
-                <label>
-                  <span>
-                    {page.form.fields.service}
-                  </span>
-
-                  <div className="contact-input-wrapper">
-                    <i
-                      className="bi bi-shield-check"
-                      aria-hidden="true"
-                    />
-
-                    <select
-                      value={formData.service}
-                      onChange={(event) =>
-                        handleChange(
-                          'service',
-                          event.target.value,
-                        )
+                {!isEmployment && (
+                  <label>
+                    <span>
+                      {
+                        page.form.fields
+                          .service
                       }
-                    >
-                      <option value="">
-                        {page.form.placeholders.service}
-                      </option>
+                    </span>
 
-                      {options.map((option) => (
-                        <option
-                          key={option}
-                          value={option}
-                        >
-                          {option}
+                    <div className="contact-input-wrapper">
+
+                      <i
+                        className="bi bi-shield-check"
+                        aria-hidden="true"
+                      />
+
+                      <select
+                        value={formData.service}
+                        onChange={(event) =>
+                          handleChange(
+                            'service',
+                            event.target.value,
+                          )
+                        }
+                      >
+                        <option value="">
+                          {
+                            page.form
+                              .placeholders
+                              .service
+                          }
                         </option>
-                      ))}
-                    </select>
-                  </div>
-                </label>
+
+                        {serviceOptions.map(
+                          (option) => (
+                            <option
+                              key={option}
+                              value={option}
+                            >
+                              {option}
+                            </option>
+                          ),
+                        )}
+
+                      </select>
+
+                    </div>
+                  </label>
+                )}
 
                 {/* Mensaje */}
                 <label className="contact-field-full">
                   <span>
-                    {page.form.fields.message}
+                    {isEmployment
+                      ? page.form.fields
+                          .employmentMessage
+                      : page.form.fields
+                          .message}
+
                     <strong aria-hidden="true">
                       *
                     </strong>
@@ -511,15 +838,24 @@ function ContactPage() {
                       )
                     }
                     placeholder={
-                      page.form.placeholders.message
+                      isEmployment
+                        ? page.form
+                            .placeholders
+                            .employmentMessage
+                        : page.form
+                            .placeholders
+                            .message
                     }
                     required
                   />
                 </label>
+
               </div>
 
               <div className="contact-form-footer">
+
                 <div className="contact-form-privacy">
+
                   <i
                     className="bi bi-lock"
                     aria-hidden="true"
@@ -528,37 +864,51 @@ function ContactPage() {
                   <small>
                     {page.form.privacy}
                   </small>
+
                 </div>
 
                 <button
                   type="submit"
                   className="button button-primary contact-submit-button"
                 >
-                  {page.form.submit}
+                  {isEmployment
+                    ? page.form
+                        .employmentSubmit
+                    : page.form.submit}
 
                   <i
                     className="bi bi-send"
                     aria-hidden="true"
                   />
                 </button>
+
               </div>
+
             </form>
+
           </div>
+
         </div>
+
       </section>
 
       {/* =====================================================
           TRUST
           ===================================================== */}
       <section className="contact-trust-section">
+
         <div className="section-container contact-trust-grid">
+
           {trustItems.map((item) => (
             <article key={item.key}>
+
               <div
                 className="contact-trust-icon"
                 aria-hidden="true"
               >
-                <i className={`bi ${item.icon}`} />
+                <i
+                  className={`bi ${item.icon}`}
+                />
               </div>
 
               <h3>
@@ -573,10 +923,14 @@ function ContactPage() {
                 className="contact-trust-accent"
                 aria-hidden="true"
               />
+
             </article>
           ))}
+
         </div>
+
       </section>
+
     </main>
   )
 }
