@@ -4,7 +4,7 @@ import babel from '@rolldown/plugin-babel'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/F.R.C-Security-Services-React/',
+  base: '/',
 
   plugins: [
     react(),
