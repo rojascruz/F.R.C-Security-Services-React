@@ -7,11 +7,17 @@
     top: 0;
     z-index: 1000;
 
-    background: #202c3b;
+    background:
+        linear-gradient(
+            135deg,
+            #2b3d52 0%,
+            #243447 55%,
+            #1f3042 100%
+        );
 
     border-bottom:
         1px solid
-        rgba(255, 255, 255, 0.06);
+        rgba(255, 255, 255, 0.08);
 
     box-shadow:
         0 8px 28px
@@ -72,6 +78,14 @@
 
     object-fit: contain;
     object-position: center;
+
+    filter:
+        brightness(1.25)
+        contrast(1.05)
+        drop-shadow(
+            0 2px 4px
+            rgba(255, 255, 255, 0.10)
+        );
 }
 
 .brand-copy {
@@ -96,7 +110,7 @@
     margin-top: 5px;
 
     color:
-        rgba(255, 255, 255, 0.48);
+        rgba(255, 255, 255, 0.65);
 
     font-size: 0.61rem;
     font-weight: 800;
